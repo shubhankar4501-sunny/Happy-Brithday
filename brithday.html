@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Subhashree ❤️</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    overflow:hidden;
+    background:black;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+}
+
+/* Main Container */
+
+.container{
+    position:relative;
+    text-align:center;
+    z-index:10;
+    background:rgba(0,0,0,0.5);
+    padding:30px;
+    border-radius:30px;
+    backdrop-filter:blur(8px);
+    box-shadow:0 0 30px rgba(255,77,136,0.5);
+}
+
+/* Title */
+
+h1{
+    color:#ff4d88;
+    font-size:55px;
+    text-shadow:0 0 10px #ff4d88,
+                 0 0 20px #ff4d88,
+                 0 0 40px #ff4d88;
+    animation:glow 2s infinite alternate;
+}
+
+@keyframes glow{
+    from{
+        text-shadow:0 0 10px #ff4d88,
+                     0 0 20px #ff4d88;
+    }
+
+    to{
+        text-shadow:0 0 20px #ff1a66,
+                     0 0 40px #ff1a66,
+                     0 0 60px #ff1a66;
+    }
+}
+
+/* Photo */
+
+.photo{
+    width:220px;
+    height:220px;
+    object-fit:cover;
+    border-radius:50%;
+    border:5px solid #ff4d88;
+    margin-top:25px;
+    box-shadow:0 0 25px #ff1a66;
+    animation:zoom 3s infinite alternate;
+}
+
+@keyframes zoom{
+    from{
+        transform:scale(1);
+    }
+
+    to{
+        transform:scale(1.07);
+    }
+}
+
+/* Video Frame */
+
+.video-frame{
+    margin-top:25px;
+    display:flex;
+    justify-content:center;
+}
+
+.video-frame video{
+    width:320px;
+    height:180px;
+    object-fit:cover;
+    border-radius:20px;
+    border:4px solid #ff4d88;
+    box-shadow:0 0 25px #ff1a66;
+}
+
+/* Typing Text */
+
+.typing{
+    margin-top:30px;
+    color:white;
+    font-size:28px;
+    min-height:100px;
+    width:80%;
+    margin-left:auto;
+    margin-right:auto;
+    line-height:45px;
+}
+
+/* Hearts */
+
+.heart{
+    position:absolute;
+    color:red;
+    font-size:22px;
+    animation:float 6s linear infinite;
+}
+
+@keyframes float{
+    0%{
+        transform:translateY(100vh) scale(1);
+        opacity:1;
+    }
+
+    100%{
+        transform:translateY(-120vh) scale(1.5);
+        opacity:0;
+    }
+}
+
+/* Footer */
+
+.footer{
+    margin-top:40px;
+    color:pink;
+    font-size:22px;
+    animation:blink 1.5s infinite;
+}
+
+@keyframes blink{
+    50%{
+        opacity:0.5;
+    }
+}
+
+/* Music Button */
+
+.music-btn{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    background:#ff1a66;
+    color:white;
+    border:none;
+    padding:12px 18px;
+    border-radius:30px;
+    cursor:pointer;
+    font-size:16px;
+    box-shadow:0 0 15px #ff1a66;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- Birthday Song -->
+<audio id="song" autoplay loop>
+    <source src="Haareya.mp3" type="audio/mp3">
+</audio>
+
+<div class="container">
+
+    <h1>💖 FOR SUBHASHREE 💖</h1>
+
+    <!-- Photo -->
+    <img src="subhashree.jpg" class="photo">
+
+    <!-- Romantic Text -->
+    <div class="typing" id="text"></div>
+
+    <div class="footer">
+        Forever Yours ❤️
+    </div>
+
+</div>
+
+<!-- Music Button -->
+<button class="music-btn" onclick="toggleMusic()">
+    🎵 Music
+</button>
+
+<script>
+
+/* Romantic Lines */
+
+const lines = [
+"Happy Birthday Subhashree ❤️",
+"Tumi amar jiboner shobcheye sundor onubhuti ✨",
+"Tomar hashi amar puro din ta beautiful kore dey 🌸",
+"Distance thakleo amar mon shobshomoy tomar sathei thake 💖",
+"Tomake chara amar prithibi ta ekdom incomplete 💗",
+"I Love You So Much Subhashree 💞",
+"Stay Happy, Stay Mine Forever ❤️"
+];
+
+let lineIndex = 0;
+let charIndex = 0;
+
+const text = document.getElementById("text");
+
+function typeEffect(){
+
+    if(lineIndex < lines.length){
+
+        if(charIndex < lines[lineIndex].length){
+
+            text.innerHTML += lines[lineIndex].charAt(charIndex);
+
+            charIndex++;
+
+            setTimeout(typeEffect,70);
+
+        }else{
+
+            text.innerHTML += "<br><br>";
+
+            lineIndex++;
+
+            charIndex = 0;
+
+            setTimeout(typeEffect,1000);
+        }
+    }
+}
+
+typeEffect();
+
+/* Floating Hearts */
+
+function createHeart(){
+
+    const heart = document.createElement("div");
+
+    heart.classList.add("heart");
+
+    heart.innerHTML = "🎀";
+
+    heart.style.left = Math.random() * 100 + "vw";
+
+    heart.style.fontSize = Math.random() * 20 + 20 + "px";
+
+    heart.style.animationDuration = Math.random() * 3 + 3 + "s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    },6000);
+}
+
+setInterval(createHeart,200);
+
+/* Popup */
+
+setTimeout(() => {
+
+    alert("Subhashree, tumi amar life er shobcheye precious person ❤️");
+
+},22000);
+
+/* Music Button */
+
+const song = document.getElementById("song");
+
+function toggleMusic(){
+
+    if(song.paused){
+        song.play();
+    }else{
+        song.pause();
+    }
+}
+
+</script>
+
+</body>
+</html>
